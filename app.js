@@ -71,19 +71,21 @@ leadForm.addEventListener("submit",async(event)=>{
     updateChecking(10000);
   })();
 
-  try{
-    // no-cors hides the Apps Script response; confirm the saved row in Google Sheets.
-    const request=fetch(GOOGLE_SCRIPT_URL,{
-      method:"POST",
-      mode:"no-cors",
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body:JSON.stringify(data)
-    });
-    await Promise.all([request,animation]);
+  // Запрос и анимация идут независимо: быстрая ошибка сети не прячет экран мгновенно.
+  const request=fetch(GOOGLE_SCRIPT_URL,{
+    method:"POST",
+    mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify(data)
+  }).then(()=>true).catch(()=>false);
+
+  await animation;
+  const sent=await request;
+  if(sent){
     showDemo(data.schoolAddress);
-  }catch(error){
+  }else{
     hideChecking();
-    statusBox.textContent="Не удалось отправить запрос. Проверьте подключение и попробуйте ещё раз.";
+    statusBox.textContent="Не удалось отправить заявку. Проверьте подключение и попробуйте ещё раз.";
     statusBox.className="form-status error";
     submitButton.disabled=false;
     submitButton.innerHTML='Проверить доступность гранта <span>→</span>';
