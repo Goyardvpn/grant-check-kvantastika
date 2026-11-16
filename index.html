@@ -1,54 +1,18 @@
 <!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff5df">
-  <meta name="description" content="Демонстрация доступности специального предложения на обучение — 270 000 ₽ за 3 года.">
-  <title>Результат проверки — грант доступен</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#fff5df"><meta name="description" content="Квантастика — обучение программированию, созданию игр и 3D-моделей для детей."><title>Квантастика — проверьте доступность специального предложения</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
 <body>
-  <main class="stage">
-    <section class="entry-screen" id="entryScreen">
-      <div class="brand"><span class="brand-mark">к</span><span>квантастика</span></div>
-      <div class="entry-icon">⌖</div>
-      <p class="eyebrow">ПЕРСОНАЛЬНЫЕ УСЛОВИЯ ОБУЧЕНИЯ</p>
-      <h1>Укажите <em>адрес школы</em></h1>
-      <p class="entry-copy">Введите адрес школы, чтобы начать демонстрацию проверки специального предложения.</p>
-      <form class="school-form" id="schoolForm">
-        <label for="schoolAddress">Адрес школы</label>
-        <input id="schoolAddress" name="schoolAddress" type="text" placeholder="Например: Москва, ул. Тверская, 1" autocomplete="street-address" required minlength="3" maxlength="180">
-        <p class="input-hint">Можно указать город, улицу и номер дома</p>
-        <button class="start-button" type="submit">Проверить доступность гранта <span>→</span></button>
-      </form>
-      <p class="entry-foot">Демонстрационный экран — адрес не отправляется и не проверяется по реестрам</p>
-    </section>
-
-    <section class="loading-screen" id="loadingScreen" aria-live="polite" hidden>
-      <div class="brand"><span class="brand-mark">к</span><span>квантастика</span></div>
-      <div class="loading-orbit"><span class="orbit-dot"></span><span class="orbit-core">✳</span></div>
-      <p class="eyebrow">ПЕРСОНАЛЬНЫЕ УСЛОВИЯ ОБУЧЕНИЯ</p>
-      <h1>Проверяем доступность<br><em>специального предложения</em></h1>
-      <p class="loading-copy" id="loadingCopy">Подготавливаем результат проверки…</p>
-      <div class="progress"><span id="progressBar"></span></div>
-      <div class="progress-meta"><span>ПРОВЕРКА УСЛОВИЙ</span><strong id="progressValue">0%</strong></div>
-      <p class="loading-foot">Это займёт всего несколько секунд</p>
-    </section>
-
-    <section class="result-screen" id="resultScreen" aria-hidden="true">
-      <div class="result-top"><div class="brand"><span class="brand-mark">к</span><span>квантастика</span></div><span class="result-label"><i></i> РЕЗУЛЬТАТ ПРОВЕРКИ</span></div>
-      <div class="success-heading"><span class="success-icon">✓</span><div><p>ОТЛИЧНЫЕ НОВОСТИ!</p><h1>Грант <em>доступен</em></h1></div></div>
-      <p class="result-subtitle">Для обучения доступно специальное предложение на особых условиях</p>
-      <div class="school-result" id="schoolResult"></div>
-      <div class="offer-frame"><img src="grant-offer.svg" alt="Условия специального предложения: тариф Оптимальный — 215 000 рублей за 24 месяца; тариф Премиум — 270 000 рублей за 36 месяцев, 7 500 рублей в месяц."></div>
-      <div class="bottom-note"><span class="note-star">✳</span><p><strong>270 000 ₽ за 3 года обучения</strong><br>Специальные условия предоставляются школой. Это не государственная выплата.</p></div>
-      <button class="replay" id="replayButton" type="button">↻ Показать анимацию ещё раз</button>
-    </section>
-  </main>
-  <script src="app.js"></script>
-</body>
-</html>
+<header class="site-header"><a class="brand" href="#home"><span class="brand-mark">к</span><span>квантастика</span></a><nav><a href="#courses">Направления</a><a href="#about">О школе</a></nav><a class="header-cta" href="#grant">Проверить грант <span>↗</span></a></header>
+<main>
+<section class="hero" id="home"><div class="hero-copy"><div class="hero-pill"><span></span> ОНЛАЙН-ОБУЧЕНИЕ ДЛЯ ДЕТЕЙ И ПОДРОСТКОВ</div><h1>Не просто играть.<br><em>Создавать своё.</em></h1><p>Помогаем детям освоить программирование, создавать игры, сайты и 3D-проекты — и превращать интерес к технологиям в полезные навыки.</p><div class="hero-actions"><a class="primary-cta" href="#grant">Проверить доступность гранта <span>→</span></a><a class="text-cta" href="#courses">Посмотреть направления ↓</a></div><div class="hero-trust"><span>✳ Практика с первых занятий</span><span>✳ Проекты своими руками</span></div></div><div class="hero-art"><div class="art-glow"></div><div class="floating-card card-code"><span class="mini-label">МОЙ ПЕРВЫЙ ПРОЕКТ</span><div class="code-lines"><i></i><i></i><i></i><i></i></div><b>print("Hello, world!")</b></div><div class="art-screen"><div class="screen-top"><i></i><i></i><i></i><span>MY GAME / 01</span></div><div class="pixel-world"><div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div><div class="pixel-character">✦</div><div class="ground"></div></div><div class="screen-caption">ТВОЯ ИДЕЯ → ТВОЙ ПРОЕКТ</div></div><div class="floating-card card-3d"><span>✳</span><b>3D CREATOR</b><small>Моделируй · Создавай · Пробуй</small></div><div class="sticker">БУДУЩЕЕ<br>В ТВОИХ<br>РУКАХ ✳</div></div></section>
+<div class="ticker"><span>SCRATCH</span><b>✳</b><span>PYTHON</span><b>✳</b><span>ROBLOX</span><b>✳</b><span>BLENDER</span><b>✳</b><span>UNITY</span><b>✳</b><span>СОЗДАВАЙ СВОЁ</span></div>
+<section class="courses section" id="courses"><div class="section-heading"><div><span class="section-kicker">ВЫБИРАЙ СВОЙ МИР</span><h2>От первой игры<br>до <em>собственного IT-проекта</em></h2></div><p>Знакомимся с технологиями через практику: ребёнок не просто смотрит уроки, а пробует, собирает и показывает результат.</p></div><div class="course-grid">
+<article class="course-card course-purple"><div class="course-art art-scratch"><span class="shape shape-one">✳</span><span class="shape shape-two">⌘</span><span class="shape shape-three">▧</span></div><div class="course-meta"><span>СТАРТ</span><span>01</span></div><h3>Scratch и основы кода</h3><p>Логика, алгоритмы, анимации и первые собственные игры.</p></article>
+<article class="course-card course-yellow"><div class="course-art art-roblox"><span class="roblox-block"></span><span class="roblox-ball">★</span><span class="roblox-tower"></span></div><div class="course-meta"><span>GAME DEV</span><span>02</span></div><h3>Roblox и создание игр</h3><p>Игровые миры, механики, персонажи и основы Lua.</p></article>
+<article class="course-card course-blue"><div class="course-art art-blender"><span class="cube3d">◆</span><span class="cube-shadow"></span></div><div class="course-meta"><span>3D DESIGN</span><span>03</span></div><h3>3D-моделирование</h3><p>Создание моделей, сцен, текстур и визуальных миров.</p></article>
+<article class="course-card course-green"><div class="course-art art-python"><span class="python-symbol">Py</span><span class="python-bracket">{ }</span></div><div class="course-meta"><span>CODE</span><span>04</span></div><h3>Python и разработка</h3><p>Программы, мини-игры, логика и первые серьёзные проекты.</p></article>
+</div><div class="courses-bottom"><span>И ЭТО ТОЛЬКО НАЧАЛО</span><a href="#grant">Узнать о специальном предложении ↗</a></div></section>
+<section class="about section" id="about"><div class="about-visual"><div class="about-orbit orbit-one"></div><div class="about-orbit orbit-two"></div><div class="about-center">к<span>✳</span></div><div class="about-tag tag-a">IDEA</div><div class="about-tag tag-b">CREATE</div><div class="about-tag tag-c">CODE</div></div><div class="about-copy"><span class="section-kicker">ОБУЧЕНИЕ ЧЕРЕЗ СОЗИДАНИЕ</span><h2>Технологии — это не только экран.<br><em>Это возможность создавать.</em></h2><p>На сайте школы представлены направления от визуального программирования и Scratch до Roblox Studio, Python, Blender и игровых движков. Ребята знакомятся с разными инструментами и создают собственные проекты.</p><div class="about-points"><div><b>01</b><span><strong>Пробовать</strong><small>Знакомиться с инструментами и идеями.</small></span></div><div><b>02</b><span><strong>Создавать</strong><small>Закреплять знания на практических проектах.</small></span></div><div><b>03</b><span><strong>Развиваться</strong><small>Постепенно находить интересное направление.</small></span></div></div></div></section>
+<section class="grant-section" id="grant"><div class="grant-decoration decor-a">✳</div><div class="grant-decoration decor-b">✳</div><div class="grant-intro"><span class="grant-kicker">СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span><h2>Проверьте,<br>доступен ли <em>грант</em></h2><p>Оставьте контактные данные и адрес школы. После заполнения откроется демонстрационный экран с условиями предложения.</p><div class="grant-price"><strong>270 000 ₽</strong><span>за 3 года обучения<br>7 500 ₽ в месяц</span></div><small class="grant-disclaimer">Специальные условия предоставляются школой. Это не государственная выплата. Форма сама по себе не подтверждает право на получение предложения.</small></div>
+<form class="lead-form" id="leadForm"><div class="form-heading"><span>ЗАЯВКА НА ПРОВЕРКУ</span><h3>Давайте знакомиться</h3><p>Заполните несколько полей — это займёт около минуты.</p></div><div class="form-grid"><div class="field"><label for="firstName">Имя *</label><input id="firstName" name="firstName" autocomplete="given-name" placeholder="Ваше имя" required maxlength="60"></div><div class="field"><label for="lastName">Фамилия *</label><input id="lastName" name="lastName" autocomplete="family-name" placeholder="Ваша фамилия" required maxlength="80"></div><div class="field"><label for="email">Электронная почта *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required maxlength="120"></div><div class="field"><label for="phone">Номер телефона *</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required minlength="7" maxlength="30"></div><div class="field field-wide"><label for="schoolAddress">Адрес школы *</label><input id="schoolAddress" name="schoolAddress" autocomplete="street-address" placeholder="Город, улица, номер школы / адрес" required minlength="3" maxlength="180"></div></div><label class="consent"><input type="checkbox" id="consent" required><span>Я согласен(на) на обработку указанных персональных данных для связи по заявке и ознакомился(лась) с <a href="PRIVACY_POLICY_URL" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</span></label><button class="submit-lead" id="submitLead" type="submit">Проверить доступность гранта <span>→</span></button><p class="form-status" id="formStatus" role="status"></p><p class="form-privacy">Данные передаются в таблицу школы только после нажатия кнопки и согласия на обработку.</p></form></section>
+<footer class="site-footer"><a class="brand" href="#home"><span class="brand-mark">к</span><span>квантастика</span></a><span>Обучение технологиям через практику</span><a href="#grant">Проверить грант ↑</a></footer>
+</main><script src="app.js"></script></body></html>
