@@ -4,7 +4,7 @@
  * 2) Deploy this project as a Web app, execute as yourself, access: anyone.
  * 3) Paste the deployed /exec URL into GOOGLE_SCRIPT_URL in app.js.
  */
-const SPREADSHEET_ID = "PASTE_GOOGLE_SPREADSHEET_ID_HERE";
+const SPREADSHEET_ID = "1BqeOWpeQYvB-FLFpOASfEcwE_Ufcm0MyV300SQb_aC";
 const SHEET_NAME = "Заявки";
 
 function doPost(e) {
@@ -19,9 +19,6 @@ function doPost(e) {
     });
     if (data.consent !== true && data.consent !== "true") {
       throw new Error("consent_required");
-    }
-    if (SPREADSHEET_ID === "PASTE_GOOGLE_SPREADSHEET_ID_HERE") {
-      throw new Error("spreadsheet_id_not_configured");
     }
 
     const lock = LockService.getScriptLock();
