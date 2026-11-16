@@ -1,51 +1,38 @@
-const entry=document.querySelector("#entryScreen");
-const form=document.querySelector("#schoolForm");
-const addressInput=document.querySelector("#schoolAddress");
-const schoolResult=document.querySelector("#schoolResult");
-const loading=document.querySelector("#loadingScreen");
-const result=document.querySelector("#resultScreen");
-const bar=document.querySelector("#progressBar");
-const value=document.querySelector("#progressValue");
-const copy=document.querySelector("#loadingCopy");
-const replay=document.querySelector("#replayButton");
-let timer=null;
-let selectedAddress="";
-function runCheck(){
-  clearInterval(timer);
-  entry.hidden=true;
-  result.style.display="none";
-  result.setAttribute("aria-hidden","true");
-  loading.hidden=false;
-  loading.style.display="flex";
-  bar.style.width="0%";
-  value.textContent="0%";
-  copy.textContent="Подготавливаем результат проверки…";
-  let progress=0;
-  timer=setInterval(()=>{
-    progress=Math.min(100,progress+2);
-    bar.style.width=progress+"%";
-    value.textContent=progress+"%";
-    if(progress===28)copy.textContent="Проверяем параметры предложения…";
-    if(progress===66)copy.textContent="Формируем персональный результат…";
-    if(progress>=100){
-      clearInterval(timer);
-      setTimeout(()=>{
-        loading.hidden=true;
-        loading.style.display="none";
-        schoolResult.textContent="Адрес школы: "+selectedAddress;
-        result.style.display="block";
-        result.setAttribute("aria-hidden","false");
-      },300);
-    }
-  },48);
+// Вставьте URL опубликованного Google Apps Script Web App в эту переменную.
+const GOOGLE_SCRIPT_URL = "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const leadForm=document.querySelector("#leadForm");
+const submitButton=document.querySelector("#submitLead");
+const statusBox=document.querySelector("#formStatus");
+const entry=document.querySelector("#grant");
+function showDemo(address){
+  const params=new URLSearchParams({school:address});
+  window.location.href="result.html?"+params.toString();
 }
-form.addEventListener("submit",(event)=>{
+leadForm.addEventListener("submit",async(event)=>{
   event.preventDefault();
-  const address=addressInput.value.trim();
-  if(address.length<3){addressInput.setCustomValidity("Введите адрес школы (не менее 3 символов).");addressInput.reportValidity();return;}
-  addressInput.setCustomValidity("");
-  selectedAddress=address;
-  runCheck();
+  if(!leadForm.reportValidity())return;
+  const data=Object.fromEntries(new FormData(leadForm).entries());
+  data.consent=document.querySelector("#consent").checked;
+  data.submittedAt=new Date().toISOString();
+  data.source=window.location.href;
+  if(!data.consent){statusBox.textContent="Для отправки необходимо подтвердить согласие.";return;}
+  if(GOOGLE_SCRIPT_URL==="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE"){
+    statusBox.textContent="Форма пока не подключена к Google Таблице. Настройте Apps Script по инструкции в README.";
+    statusBox.className="form-status error";
+    return;
+  }
+  submitButton.disabled=true;
+  submitButton.innerHTML="Отправляем заявку…";
+  statusBox.textContent="Сохраняем данные…";
+  try{
+    await fetch(GOOGLE_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
+    statusBox.textContent="Заявка отправлена. Открываем демонстрацию…";
+    statusBox.className="form-status success";
+    setTimeout(()=>showDemo(data.schoolAddress),700);
+  }catch(error){
+    statusBox.textContent="Не удалось отправить заявку. Проверьте подключение и попробуйте ещё раз.";
+    statusBox.className="form-status error";
+    submitButton.disabled=false;
+    submitButton.innerHTML='Проверить доступность гранта <span>→</span>';
+  }
 });
-addressInput.addEventListener("input",()=>addressInput.setCustomValidity(""));
-replay.addEventListener("click",runCheck);
