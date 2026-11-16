@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="Проверьте доступность специальных условий обучения в Квантастике.">
+  <title>Квантастика — специальные условия обучения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="glow glow-a"></div><div class="glow glow-b"></div>
+  <header class="topbar"><a class="brand" href="#"><span class="brand-icon">q</span> КВАНТАСТИКА</a><span class="top-label"><i></i> СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span></header>
+  <main>
+    <section class="hero" id="hero">
+      <div class="eyebrow"><span></span> ОБРАЗОВАНИЕ БЕЗ ГРАНИЦ</div>
+      <h1>Новые возможности<br><em>начинаются в школе.</em></h1>
+      <p class="lead">Узнайте, можно ли применить специальные условия Квантастики для обучения вашего ребёнка.</p>
+      <div class="search-card">
+        <label for="school">Название или адрес школы</label>
+        <div class="input-wrap"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="school" placeholder="Например, школа № 123, Москва" autocomplete="off"><button id="clear" aria-label="Очистить">×</button></div>
+        <button class="primary" id="check"><span>Проверить условия</span><b>→</b></button>
+        <p class="fineprint">✓ Проверка предложения школы, не государственной программы.</p>
+      </div>
+      <div class="trust"><span><b>01</b> Понятные условия</span><span><b>02</b> Прозрачная стоимость</span><span><b>03</b> Без обязательств</span></div>
+    </section>
+    <section class="checking hidden" id="checking" aria-live="polite">
+      <div class="orb"><div class="orb-core">Q</div><div class="ring"></div></div><div class="eyebrow centered">КВАНТАСТИКА · ПРОВЕРКА</div>
+      <h2>Уточняем условия<br><em>для вашей школы</em></h2><p class="school-name" id="checkingName"></p>
+      <div class="progress"><span id="progress"></span></div><p class="muted" id="status">Подготавливаем запрос…</p>
+    </section>
+    <section class="result hidden" id="result" aria-live="polite">
+      <div class="result-nav"><span class="pill">● ПРЕДЛОЖЕНИЕ ДЛЯ УТОЧНЕНИЯ</span><button id="back" class="back">← Изменить школу</button></div>
+      <div class="result-intro"><div class="spark">✦</div><div class="eyebrow centered">ВАШ СЛЕДУЮЩИЙ ШАГ</div><h2>Специальные условия<br><em>могут быть доступны</em></h2><p class="lead">Мы получили название вашей школы. Оставьте заявку, чтобы менеджер Квантастики уточнил применимость предложения именно для вашей семьи.</p></div>
+      <div class="offer"><div class="offer-label">ПРОГРАММА ОБУЧЕНИЯ · 3 ГОДА</div><div class="price">270 000 <small>₽</small></div><p class="price-sub">Пример стоимости по специальному предложению</p><div class="offer-line"></div><div class="stats"><div><small>Срок обучения</small><strong>36 месяцев</strong></div><div><small>Расчёт в месяц*</small><strong>7 500 ₽</strong></div></div><p class="calc-note">* 270 000 ₽ ÷ 36 месяцев. Это арифметический расчёт, а не обещание рассрочки. Фактические условия оплаты уточняются у менеджера.</p></div>
+      <div class="notice"><span class="info">i</span><div><strong>Важно знать о предложении</strong><p>Специальные условия финансируются школой Квантастика. Это не государственный грант и не выплата из государственного бюджета.</p></div></div>
+      <div class="school-chip"><span>⌖</span><div><small>ВВЕДЁННАЯ ШКОЛА</small><strong id="resultName"></strong></div></div>
+      <a class="primary contact" href="mailto:hello@kvantastika.ru?subject=Уточнение%20специальных%20условий"><span>Уточнить условия с менеджером</span><b>→</b></a><p class="endnote">Отправка заявки не обязывает вас приобретать обучение.</p>
+    </section>
+  </main>
+  <footer><span>© КВАНТАСТИКА</span><span>ОБУЧЕНИЕ · ТЕХНОЛОГИИ · БУДУЩЕЕ</span></footer>
+  <script src="app.js"></script>
+</body></html>
