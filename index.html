@@ -13,7 +13,22 @@
 </head>
 <body>
   <main class="stage">
-    <section class="loading-screen" id="loadingScreen" aria-live="polite">
+    <section class="entry-screen" id="entryScreen">
+      <div class="brand"><span class="brand-mark">к</span><span>квантастика</span></div>
+      <div class="entry-icon">⌖</div>
+      <p class="eyebrow">ПЕРСОНАЛЬНЫЕ УСЛОВИЯ ОБУЧЕНИЯ</p>
+      <h1>Укажите <em>адрес школы</em></h1>
+      <p class="entry-copy">Введите адрес школы, чтобы начать демонстрацию проверки специального предложения.</p>
+      <form class="school-form" id="schoolForm">
+        <label for="schoolAddress">Адрес школы</label>
+        <input id="schoolAddress" name="schoolAddress" type="text" placeholder="Например: Москва, ул. Тверская, 1" autocomplete="street-address" required minlength="3" maxlength="180">
+        <p class="input-hint">Можно указать город, улицу и номер дома</p>
+        <button class="start-button" type="submit">Проверить доступность гранта <span>→</span></button>
+      </form>
+      <p class="entry-foot">Демонстрационный экран — адрес не отправляется и не проверяется по реестрам</p>
+    </section>
+
+    <section class="loading-screen" id="loadingScreen" aria-live="polite" hidden>
       <div class="brand"><span class="brand-mark">к</span><span>квантастика</span></div>
       <div class="loading-orbit"><span class="orbit-dot"></span><span class="orbit-core">✳</span></div>
       <p class="eyebrow">ПЕРСОНАЛЬНЫЕ УСЛОВИЯ ОБУЧЕНИЯ</p>
@@ -28,6 +43,7 @@
       <div class="result-top"><div class="brand"><span class="brand-mark">к</span><span>квантастика</span></div><span class="result-label"><i></i> РЕЗУЛЬТАТ ПРОВЕРКИ</span></div>
       <div class="success-heading"><span class="success-icon">✓</span><div><p>ОТЛИЧНЫЕ НОВОСТИ!</p><h1>Грант <em>доступен</em></h1></div></div>
       <p class="result-subtitle">Для обучения доступно специальное предложение на особых условиях</p>
+      <div class="school-result" id="schoolResult"></div>
       <div class="offer-frame"><img src="grant-offer.svg" alt="Условия специального предложения: тариф Оптимальный — 215 000 рублей за 24 месяца; тариф Премиум — 270 000 рублей за 36 месяцев, 7 500 рублей в месяц."></div>
       <div class="bottom-note"><span class="note-star">✳</span><p><strong>270 000 ₽ за 3 года обучения</strong><br>Специальные условия предоставляются школой. Это не государственная выплата.</p></div>
       <button class="replay" id="replayButton" type="button">↻ Показать анимацию ещё раз</button>
