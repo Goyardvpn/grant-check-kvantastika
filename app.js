@@ -1,5 +1,5 @@
-// Вставьте URL опубликованного Google Apps Script Web App в эту переменную.
-const GOOGLE_SCRIPT_URL = "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+// URL опубликованного Google Apps Script Web App.
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyyKfQqpBuCSfLu8wVNMj1aAFagXipZT5dKTXprwEpME-pEQMeHeJJWn2XfrDNiunLx3A/exec";
 const leadForm=document.querySelector("#leadForm");
 const submitButton=document.querySelector("#submitLead");
 const statusBox=document.querySelector("#formStatus");
@@ -16,17 +16,14 @@ leadForm.addEventListener("submit",async(event)=>{
   data.submittedAt=new Date().toISOString();
   data.source=window.location.href;
   if(!data.consent){statusBox.textContent="Для отправки необходимо подтвердить согласие.";return;}
-  if(GOOGLE_SCRIPT_URL==="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE"){
-    statusBox.textContent="Форма пока не подключена к Google Таблице. Настройте Apps Script по инструкции в README.";
-    statusBox.className="form-status error";
-    return;
-  }
   submitButton.disabled=true;
   submitButton.innerHTML="Отправляем заявку…";
   statusBox.textContent="Сохраняем данные…";
   try{
+    // no-cors means the browser cannot read the Apps Script response.
+    // Verify the test submission in the Google Sheet before using this with real leads.
     await fetch(GOOGLE_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
-    statusBox.textContent="Заявка отправлена. Открываем демонстрацию…";
+    statusBox.textContent="Запрос отправлен. Открываем демонстрацию…";
     statusBox.className="form-status success";
     setTimeout(()=>showDemo(data.schoolAddress),700);
   }catch(error){
